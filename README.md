@@ -1,16 +1,26 @@
-# React + Vite
+# Jammming — The Mixroom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jammming is a responsive React application that lets users search for music, create a custom playlist, and save it to their Spotify account.
 
-Currently, two official plugins are available:
+This project was created as part of Codecademy’s Jammming curriculum project to practice React state management and explore responsive interface design while learning how to integrate the Spotify Web API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Secure Spotify login using PKCE authentication
+- Search by song, artist, or album
+- View album artwork and track information
+- Add and remove tracks from a custom playlist
+- Create a live cover collage from selected tracks
+- Save the completed playlist to Spotify
+- Responsive desktop and mobile interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Requirements and Setup
 
-## Expanding the ESLint configuration
+- Node.js 20.19 or newer, npm, a Spotify account, and a Spotify Developer application
+- All project packages, including React, Vite, ESLint, and Prettier, are installed with `npm install`
+- Create `.env.local` with `VITE_SPOTIFY_CLIENT_ID` and `VITE_SPOTIFY_REDIRECT_URI=http://127.0.0.1:5173/`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev -- --host 127.0.0.1
+```
