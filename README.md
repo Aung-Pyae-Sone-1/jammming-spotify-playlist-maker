@@ -1,8 +1,12 @@
-# Jammming — The Mixroom
+# Jammming — Playlist Maker
 
 Jammming is a responsive React application that lets users search for music, create a custom playlist, and save it to their Spotify account.
 
-This project was created as part of Codecademy’s Jammming curriculum project to practice React state management and explore responsive interface design while learning how to integrate the Spotify Web API.
+This project was created as part of Codecademy’s curriculum to practice React state management, explore AI-assisted responsive interface design, deploy a static application with Netlify, and learn API integration using the Spotify Web API.
+
+## Live Demo
+
+[Open Playlist Maker](https://playlist-maker-spotify.netlify.app/)
 
 ## Features
 
