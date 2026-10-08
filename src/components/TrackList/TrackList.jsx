@@ -1,9 +1,9 @@
 import Track from '../Track/Track.jsx'
 
-function TrackList() {
+function TrackList({ tracks = [] }) {
   return (
     <div className="track-list">
-      <Track />
+      {tracks.map((track) => (<Track key={track.id} track={track} />))}
     </div>
   )
 }
