@@ -1,15 +1,36 @@
 import TrackList from '../TrackList/TrackList.jsx'
 
-function Playlist({ playlistName, playlistTracks, onRemove, onNameChange }) {
+function Playlist({
+  playlistName,
+  playlistTracks,
+  onRemove,
+  onNameChange,
+  onSave,
+  isSaving,
+}) {
   function handleNameChange(event) {
     onNameChange(event.target.value)
   }
 
   return (
     <section className="playlist">
-      <input type="text" defaultValue={playlistName} aria-label="Playlist name" onChange={handleNameChange} />
-      <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} />
-      <button type="button">Save To Spotify</button>
+      <label className="sr-only" htmlFor="playlist-name">
+        Playlist name
+      </label>
+      <input
+        id="playlist-name"
+        type="text"
+        value={playlistName}
+        onChange={handleNameChange}
+      />
+      <TrackList
+        tracks={playlistTracks}
+        onRemove={onRemove}
+        isRemoval={true}
+      />
+      <button type="button" onClick={onSave} disabled={isSaving}>
+        {isSaving ? 'Saving...' : 'Save To Spotify'}
+      </button>
     </section>
   )
 }
