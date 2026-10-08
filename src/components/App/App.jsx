@@ -1,7 +1,8 @@
-import './App.css'
+import { useState } from 'react';
 import Playlist from '../Playlist/Playlist.jsx'
 import SearchBar from '../SearchBar/SearchBar.jsx'
 import SearchResults from '../SearchResults/SearchResults.jsx'
+import './App.css'
 
 function App() {
   const searchResults = [
@@ -27,19 +28,42 @@ function App() {
     uri: 'spotify:track:example3',
   }];
 
-  const playlistName = 'My Playlist';
-  const playlistTracks = [searchResults[0],searchResults[2]];
+  const [playlistName, setPlaylistName] = useState("My Playlist")
+  const [playlistTracks, setPlaylistTracks] = useState([])
 
+  function addTrack(track) {
+    setPlaylistTracks((currentTracks) => {
+      const trackAlreadyExists = currentTracks.some(
+        (currentTrack) => (currentTrack.id === track.id)
+      )
+      if (trackAlreadyExists) {
+        return currentTracks
+      }
+
+      return [...currentTracks, track]
+    })
+  }
+
+  function removeTrack(track) {
+    setPlaylistTracks((currentTracks) => {
+      return currentTracks.filter((currentTrack) => (currentTrack.id !== track.id))
+    })
+  }
+
+  function updatePlaylistName(newName) {setPlaylistName(newName)}
+  
   return (
     <main>
       <h1>Jammming</h1>
       <SearchBar />
 
       <div className="workspace">
-        <SearchResults searchResults={searchResults} />
+        <SearchResults searchResults={searchResults} onAdd={addTrack}/>
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
+          onRemove={removeTrack}
+          onNameChange={updatePlaylistName}
         />
       </div>
     </main>
